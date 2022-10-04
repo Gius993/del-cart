@@ -48,7 +48,7 @@ data: () => {
 
     removeItemFromCart(product) {
       this.cart.splice(this.cart.indexOf(product), 1);
-      this.total =- product.cost
+      this.total -= product.cost
     },
 
     navigateTo(page) {
