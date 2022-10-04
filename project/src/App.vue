@@ -6,7 +6,7 @@
       <button v-on:click="navigateTo('cart')">View Cart</button>
 
     </header>
-    <h1>{{  total }}</h1>
+    <h1>{{  total }}$</h1>
     <div v-if="page === 'cart'">
       <CartList v-on:removeItemFromCart="removeItemFromCart" :cart="cart" />
     </div>
@@ -48,7 +48,10 @@ data: () => {
 
     removeItemFromCart(product) {
       this.cart.splice(this.cart.indexOf(product), 1);
-      this.total -= product.cost
+      this.total -= product.cost;
+      if(this.cart.length === 0 ){
+        this.total = 0;
+      }
     },
 
     navigateTo(page) {
