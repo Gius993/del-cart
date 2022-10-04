@@ -22,7 +22,7 @@
 	methods: {
 		removeItemFromCart(product) {
       this.$emit("removeItemFromCart", product);
-    }
+    },
   }
   }
   </script>
@@ -34,4 +34,5 @@
   .image_my{
 	width: 200px;
   }
+
   </style>

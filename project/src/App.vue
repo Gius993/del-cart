@@ -4,12 +4,13 @@
       <button v-on:click="navigateTo('products')">View products</button>
       {{cart.length}} in cart
       <button v-on:click="navigateTo('cart')">View Cart</button>
-    </header>
 
+    </header>
+    <h1>{{  cartTotalAmount()}}</h1>
     <div v-if="page === 'cart'">
       <CartList v-on:removeItemFromCart="removeItemFromCart" :cart="cart" />
     </div>
-
+    
     <div v-if="page === 'products'">
       <ProductsCart v-on:addItemToCart="addItemToCart" />
     </div>
@@ -32,19 +33,38 @@ export default {
 data: () => {
     return {
       page: "products",
-      cart: []
+        cart: [],
+        cartCount: 0,
+        total: 0,
     };
   },
   methods: {
     addItemToCart(product) {
       this.cart.push(product);
+      this.cartCount++;
     },
+    
+  //cartTotalAmount() {
+      
+    // for (let products in this.cart) {
+     //   this.total += (this.cart[products].cartCount * this.cart[products].cost)
+    //    console.log(products)
+   //   }
+  //    return this.total;
+   // },
+   cartTotalAmount() {
+    return this.cart.reduce( (acc, item) => {
+        return acc + (item.quantity * item.prix)
+    }, 0)
+  },
     removeItemFromCart(product) {
-      this.cart.splice(this.cart.indexOf(product), 1);
+         this.cart.splice(this.cart.indexOf(product), 1);
     },
+
     navigateTo(page) {
       this.page = page;
-    }
+    },
+ 
   },
 
 }
