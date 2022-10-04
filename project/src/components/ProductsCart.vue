@@ -28,14 +28,14 @@
         {
           id: 1,
           name: "Cake",
-          cost: "$0.99",
+          cost: 0.99,
           image:"https://www.oetker.ch/Recipe/Recipes/oetker.ch/ch-it/baking/image-thumb__14899__RecipeDetailsLightBox/torta-brownie-a-strati.jpg"
         },
             
         {
           id: 2,
           name: "Pollo arrosto",
-          cost: "$5.99",
+          cost: 5.99,
           image:"https://www.salepepe.it/files/2017/03/POLLO-ARROSTO.jpg"
           
         },
